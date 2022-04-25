@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar, Platform } from "react-native";
+import ListingDetailScreen from "./src/screens/ListingDetailScreen";
+
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {/* <WelcomeScreen /> */}
+      <ListingDetailScreen
+        image="https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/26JwjrFmxtQt5ppMn6sxnK/b5d1f28c80406631a9c83c5ef59ebba9/ac-syndicate-heroBanner.jpg"
+        price={100}
+        title="Assasin's Creed Brotherhood"
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "#fafafa",
   },
 });
